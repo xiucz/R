@@ -1,4 +1,8 @@
-# 主题
+```
+> library("ggplot2");packageVersion("ggplot2")
+[1] ‘2.2.1’
+```
+# theme
 
 
 参数|设置内容|继承自
@@ -58,7 +62,7 @@ strip.text.y|
 
 ```r
 theme_micro <- function(..., base_size = 12, bg = 'white') {
-    require(grid) +
+    require(grid)
     theme_classic(...) +
         theme(rect=element_rect(fill=bg),
               plot.margin=unit(rep(0.5,4), 'lines'),
@@ -103,6 +107,27 @@ p3 <- p2 + theme(legend.key.size=unit(.4,'cm')) +
 
 ups.melt$exp=factor(ups.melt$exp, levels=c("UPS2only","UPS2yeast","UPS2mouse")); #修改exp的因子水平顺序，从而确定X轴输出的顺序
 
+#scale_y_continuous(expand=c(0,0))
+#scale_y_continuous(limits=c(0,max(toPlot$value)))
+# scale_x_continuous(expand = c(0, 0), limits = c(0,5))
+
+#theme(axis.line = element_line(size=1, colour = "black"))
 
 
+> ggplot(data = mtcars, aes(x = cyl, y = mpg, fill=factor(gear))) + geom_bar(position = "fill", stat="identity")
+```
+# legend
+```
+p <- qplot(Sepal.Length,Petal.Length,data=iris,geom="point",colour = Species)
+```
+
+## 去掉图例
+```
+p + theme(legend.position="none"
+```
+## 图例位置
+```
+b <- qplot(Species,Sepal.Width,data=iris,geom="boxplot",fill = Species)+scale_fill_brewer(palette = "Pastel2")
+b+theme(legend.position="top")
+b+theme(legend.position=c(.92,.9))
 ```
