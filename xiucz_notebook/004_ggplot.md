@@ -33,26 +33,26 @@ legend.title|图例标题|text
 legend.title.align|图例标题对齐方式 	 
 legend.position|图例位置|left, right, bottom, top, 两数字向量
 legend.direction|图例排列方向|"horizontal" or "vertical"
-- legend.justification 	居中方式 	center或两数字向量
-- legend.box 	多图例的排列方式 	"horizontal" or "vertical"
-- legend.box.just 	多图例居中方式 	 
-- panel.background 	绘图区背景 	rect
-- panel.border 	绘图区边框 	rect
-- panel.margin 	分面绘图区之间的边距 	 
-- panel.grid 	绘图区网格线 	line
-- panel.grid.major 	主网格线 	 
-- panel.grid.minor 	次网格线 	 
-- panel.grid.major.x 	  	 
-- panel.grid.major.y 	  	 
-- panel.grid.minor.x 	  	 
-- panel.grid.minor.y 	  	 
-- plot.background 	整个图形的背景 	 
-- plot.title 	图形标题 	 
-- plot.margin 	图形边距 	top, right, bottom, left
-- strip.background 	分面标签背景 	rect
+legend.justification|居中方式|center或两数字向量
+legend.box|多图例的排列方式|"horizontal" or "vertical"
+legend.box.just|多图例居中方式 	 
+panel.background|绘图区背景|rect
+panel.border|绘图区边框|rect
+panel.margin|分面绘图区之间的边距 	 
+panel.grid|绘图区网格线|line
+panel.grid.major|主网格线 	 
+panel.grid.minor|次网格线 	 
+panel.grid.major.x| 	  	 
+panel.grid.major.y|	  	 
+panel.grid.minor.x|	  	 
+panel.grid.minor.y|	  	 
+plot.background|整个图形的背景 	 
+plot.title|图形标题 	 
+plot.margin|图形边距|top, right, bottom, left
+strip.background|分面标签背景|rect
 strip.text|分面标签文本|text
-strip.text.x 	  	 
-strip.text.y
+strip.text.x| 	  	 
+strip.text.y|
 
 
 
