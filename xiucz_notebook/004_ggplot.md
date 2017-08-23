@@ -1,4 +1,6 @@
 
+![]({{site.baseurl}}/)
+
 ```r
 library(ggplot2)
 packageVersion("ggplot2")
