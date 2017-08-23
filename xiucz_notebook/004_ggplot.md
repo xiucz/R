@@ -84,13 +84,25 @@ head(mpg)
 ```r
 p <- ggplot(data = mpg, aes(x = class, y = cty, fill = factor(year)))
 ## 
-p1 <- p + geom_bar(stat = "identity", position = "fill")
+p1 <- p + geom_bar(stat = "identity", position = "fill", width = 0.5)
 ## x轴字体角度, x轴字体大小, 距x轴偏离距离
-p2 <- theme(axis.text.x=element_text(angle=90, size=8, vjust = 0.5))
+p2 <- theme(axis.text.x=element_text(angle=90, size=8, vjust = 0.5, color="black", face = "bold"))
 ## 
 p3 <- p2 + theme(legend.key.size=unit(.4,'cm')) +
     theme(legend.key = element_rect(colour = 'white',
           fill = 'pink', size = 1, linetype = 1))
           
 ## guides(fill = guide_legend(reverse = TRUE))
+#        scale_y_continuous(breaks = c(0.00, 0.25, 0.50, 0.75, 1.00), labels = c("0", "25", "50", "75", "100")) 
+
+# geom_bar(stat = "identity", width = 0.5) +   ## 修改柱条的宽度
+
+# 如何自定义ggplot2中各组数据输出的次序
+但是我想要的次序是UPS2only, UPS2yeast, UPS2mouse，因此需要重新定义exp的因子水平
+这里只需调整melt之后的因子水平即可：
+
+ups.melt$exp=factor(ups.melt$exp, levels=c("UPS2only","UPS2yeast","UPS2mouse")); #修改exp的因子水平顺序，从而确定X轴输出的顺序
+
+
+
 ```
