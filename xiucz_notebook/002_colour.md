@@ -40,9 +40,14 @@ plot(rnorm(100),main="Plot Title",col.axis="blue",col.lab="red",col.main="darkbl
 ```
 
 ## ggsci
-https://ggsci.net/
+https://ggsci.net/  
 https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html
 
+## ggtech
+https://github.com/ricardo-bion/ggtech
+
+## ggthemr
+https://github.com/cttobin/ggthemr
 ## 配色网站
 https://color.adobe.com/zh/create/color-wheel/?copy=true  
 http://color.aurlien.net/  
