@@ -30,9 +30,9 @@ legend.key.width|图例符号宽度
 legend.text|图例文字标签 	 
 legend.text.align|图例文字标签对齐方式 	0为左齐，1为右齐
 legend.title|图例标题|text
-legend.title.align| 	图例标题对齐方式 	 
-legend.position| 	图例位置| 	left, right, bottom, top, 两数字向量
-legend.direction| 	图例排列方向| 	"horizontal" or "vertical"
+legend.title.align|图例标题对齐方式 	 
+legend.position|图例位置|left, right, bottom, top, 两数字向量
+legend.direction|图例排列方向|"horizontal" or "vertical"
 - legend.justification 	居中方式 	center或两数字向量
 - legend.box 	多图例的排列方式 	"horizontal" or "vertical"
 - legend.box.just 	多图例居中方式 	 
