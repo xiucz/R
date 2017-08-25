@@ -85,8 +85,12 @@ library(ggplot2)
 packageVersion("ggplot2")
 head(mpg)
 ```
+
+# barplot
+
 ```r
-p <- ggplot(data = mpg, aes(x = class, y = cty, fill = factor(year)))
+mtcars$cyl <- factor(mtcars$cyl)
+p <- ggplot(data = mpg, aes(x = wt, y = mpg, fill = factor(year)))
 ## 
 p1 <- p + geom_bar(stat = "identity", position = "fill", width = 0.5)
 ## x轴字体角度, x轴字体大小, 距x轴偏离距离
@@ -116,6 +120,28 @@ ups.melt$exp=factor(ups.melt$exp, levels=c("UPS2only","UPS2yeast","UPS2mouse"));
 
 > ggplot(data = mtcars, aes(x = cyl, y = mpg, fill=factor(gear))) + geom_bar(position = "fill", stat="identity")
 ```
+
+#　geom_point()
+```r
+ggplot(data=mtcars, aes(x=wt, y=mpg)) + geom_point()
+```
+```
+# shape参数修改图形的形状
+ggplot(data=mtcars, aes(x=wt, y=mpg)) +geom_point(shape=17)
+
+# size参数修改点的大小
+ggplot(data = mtcars, aes(x=wt, y=mpg))+geom_point(size=5)
+
+# color参数修改点的颜色
+ggplot(data=mtcars, aes(x=wt, y=mpg))+geom_point(color="red")
+
+ggplot(data=mtcars, aes(x=wt, y=mpg, color=cyl, shape= cyl))+ geom_point(size=3) +    
+  scale_color_brewer(palette = "Accent")+ scale_shape_manual(values = c(2, 9, 16))
+```
+
+
+
+```
 # legend
 ```
 p <- qplot(Sepal.Length,Petal.Length,data=iris,geom="point",colour = Species)
@@ -130,4 +156,18 @@ p + theme(legend.position="none"
 b <- qplot(Species,Sepal.Width,data=iris,geom="boxplot",fill = Species)+scale_fill_brewer(palette = "Pastel2")
 b+theme(legend.position="top")
 b+theme(legend.position=c(.92,.9))
+```
+## 移除图例标题
+```
+b + guides(fill = guide_legend(title = NULL))
+```
+
+## 去掉背景
+```r
+legend.background = element_blank()
+```
+
+## 去掉KEY的背景
+```
+legend.key = element_blank()
 ```
