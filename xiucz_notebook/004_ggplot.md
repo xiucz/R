@@ -138,6 +138,7 @@ ggplot(data=mtcars, aes(x=wt, y=mpg))+geom_point(color="red")
 ggplot(data=mtcars, aes(x=wt, y=mpg, color=cyl, shape= cyl))+ geom_point(size=3) +    
   scale_color_brewer(palette = "Accent")+ scale_shape_manual(values = c(2, 9, 16))
 ```
+http://blog.sina.com.cn/s/blog_4a0824490102w4i0.html
 
 
 
