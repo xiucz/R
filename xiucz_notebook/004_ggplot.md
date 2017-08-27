@@ -90,24 +90,39 @@ head(mpg)
 
 ```r
 mtcars$cyl <- factor(mtcars$cyl)
-p <- ggplot(data = mpg, aes(x = wt, y = mpg, fill = factor(year)))
+p <- ggplot(data = mtcars, aes(x = cyl, y = mpg, fill = factor(gear)))
+
 ## 
 p1 <- p + geom_bar(stat = "identity", position = "fill", width = 0.5)
-## x轴字体角度, x轴字体大小, 距x轴偏离距离
-p2 <- theme(axis.text.x=element_text(angle=90, size=8, vjust = 0.5, color="black", face = "bold"))
-## 
-p3 <- p2 + theme(legend.key.size=unit(.4,'cm')) +
-    theme(legend.key = element_rect(colour = 'white',
-          fill = 'pink', size = 1, linetype = 1))
-          
-## guides(fill = guide_legend(reverse = TRUE))
-#        scale_y_continuous(breaks = c(0.00, 0.25, 0.50, 0.75, 1.00), labels = c("0", "25", "50", "75", "100")) 
 
-# geom_bar(stat = "identity", width = 0.5) +   ## 修改柱条的宽度
+## 坐标轴字体角度, 坐标轴字体大小, 距坐标轴偏离距离
+p1 + theme(axis.text.x=element_text(angle=90, size=8, vjust = 0.5, color="black", face = "bold"))
+
+## 修改坐标轴刻度标签
+p1 + scale_y_continuous(breaks = c(0.00, 0.25, 0.50, 0.75, 1.00), labels = c("0", "25", "50", "75", "100")) 
+
+## 修改轴坐标的显示范围
+p1 + scale_x_continuous(limits = c(-5,15))
+p1 + xlim(-5,15)
+
+## 修改柱条的宽度
+p1 + geom_bar(stat = "identity", width = 0.5) 
+
+## 修改坐标轴标题
+p1 + labs(x = "这是 X 轴", y = "这是 Y 轴", title = "这是标题")
+
+##
+p1 + theme(panel.grid =element_blank()) +  ## 删去网格线
+  theme(axis.text = element_blank()) +  ## 删去所有刻度标签
+ theme(axis.text.y = element_blank()) + ## 设置 axis.text.y 则只删去 Y 轴的刻度标签，X 轴同理。
+theme(panel.border = element_blank()) + ## 删去外层边框
+theme(axis.line = element_line(size=1, colour = "black")) ## 再加上坐标轴（无刻度、无标签）
+
 
 # 如何自定义ggplot2中各组数据输出的次序
 但是我想要的次序是UPS2only, UPS2yeast, UPS2mouse，因此需要重新定义exp的因子水平
 这里只需调整melt之后的因子水平即可：
+
 
 ups.melt$exp=factor(ups.melt$exp, levels=c("UPS2only","UPS2yeast","UPS2mouse")); #修改exp的因子水平顺序，从而确定X轴输出的顺序
 
@@ -167,6 +182,12 @@ b + guides(fill = guide_legend(title = NULL))
 ```r
 legend.background = element_blank()
 ```
+
+p3 <- p2 + theme(legend.key.size=unit(.4,'cm')) +
+    theme(legend.key = element_rect(colour = 'white',
+          fill = 'pink', size = 1, linetype = 1))
+          
+## guides(fill = guide_legend(reverse = TRUE))
 
 ## 去掉KEY的背景
 ```
