@@ -1,0 +1,6 @@
+group_info <- read.table("category.txt", header = T, sep = "\t")
+otufile <- read.table("otu_table_even.txt", header = T, sep = "\t")
+otufile_l <- melt(otufile, id = "OTU_ID")
+groupotufile <- merge(otufile_l, group_info, by.x = "variable", by.y = "Sample")
+groupotufile_w <- dcast(groupotufile, OTU_ID~Group, sum, margins = TRUE)
+write.table(groupotufile_w[,-ncol(groupotufile_w)], "group.txt", row.names = F, quote = F, sep = "\t")
